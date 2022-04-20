@@ -1,0 +1,110 @@
+.my-space {
+  width: 80vw;
+  height: 500px;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+  top: 50px;
+  border-radius: 7px;
+  background: linear-gradient(162deg, $purple, $purple-1);
+  z-index: 0;
+  overflow: hidden;
+  padding: 2rem;
+  color: $white;
+
+  .adjust {
+    background-color: $purple;
+    color: $white;
+
+    &:hover {
+      background-color: $pink;
+      color: $black;
+    }
+
+    &:focus {
+      background-color: $pink;
+      color: $black;
+    }
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: -2;
+    left: -50%;
+    top: -50%;
+    width: 200%;
+    height: 200%;
+    background-color: $purple;
+    background-repeat: no-repeat;
+    background-size: 50% 50%, 50% 50%;
+    background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+    background-image: linear-gradient($purple, $purple-1), linear-gradient($purple-2, $purple-3), linear-gradient($pink, $pink-1), linear-gradient($pink-2, $pink-3);
+    animation: rotate 4s linear infinite;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    left: 6px;
+    top: 6px;
+    width: calc(100% - 12px);
+    height: calc(100% - 12px);
+    background: $black;
+    border-radius: 5px;
+  }
+
+  .form-input {
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    top: 30px;
+
+    .col-2 {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+  }
+
+  .avatar {
+    height: 70px;
+    position: absolute;
+    right: 81px;
+    border-radius: 50%;
+  }
+}
+
+.form-input input:focus::-webkit-input-placeholder {
+  color: $white;
+  opacity: .5;
+  transition: all 0.3s ease;
+}
+
+.form-input input[type="email"],
+.form-input input[type="text"],
+.form-input input[type="password"],
+.form-input input[type="checkbox"]:focus,
+.form-input input[type="submit"]:focus {
+  outline: 0;
+}
+
+.form-input input[type="email"],
+.form-input input[type="text"],
+.form-input input[type="password"] {
+  font-weight: 700;
+  font-size: 1.4em;
+  padding: 10px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 2px dashed $pink;
+  background-color: transparent;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(1turn);
+  }
+}

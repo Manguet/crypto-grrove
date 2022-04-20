@@ -1,0 +1,35 @@
+//COLORS
+$white: #FFF;
+$black: #000;
+
+$purple: #7329B4;
+$purple-1: #A53CFF;
+$purple-2: #9112FF;
+$purple-3: #352D3C;
+$purple-4: #21162A;
+
+$pink: #C52198;
+$pink-1: #FF2EC5;
+$pink-2: #FF01B9;
+$pink-3: #42303D;
+$pink-4: #2F1728;
+
+$blue: #4533B8;
+$blue-1: #6249FF;
+$blue-2: #4022FF;
+$blue-3: #312F3E;
+$blue-4: #1B182B;
+
+@font-face {
+  font-family: "Press Start 2P";
+  src: url("http://127.0.0.1:8000/fonts/PressStart2P-Regular.ttf");
+}
+
+@font-face {
+  font-family: "VT323";
+  src: url("http://127.0.0.1:8000/fonts/VT323-Regular.ttf");
+}
+
+//FONTS
+$title-font: 'Press Start 2P', cursive;
+$main-font: 'VT323', monospace;

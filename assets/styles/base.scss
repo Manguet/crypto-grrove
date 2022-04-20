@@ -1,0 +1,68 @@
+body {
+  font-family: $main-font;
+  min-height: 100vh;
+  max-width: 100vw;
+  overflow: hidden;
+  background-color: $purple;
+
+  h1, h2, h3, h4 {
+    font-family: $title-font;
+    color: $purple;
+
+    &:hover {
+      color: $pink;
+
+      img {
+        transform: translateY(-10px);
+      }
+    }
+  }
+
+  .icon {
+    height: 30px;
+  }
+
+  main {
+    min-width: 100vw;
+    min-height: 82vh;
+    background-image: url("../../public/medias/dance.gif");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .advisor {
+    position: absolute;
+    top: 50vh;
+    left: 40vw;
+    padding: 15px 10px;
+    background-color: $purple;
+    border-radius: 5px;
+
+    .yes-or-no {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+//SCROLLBAR
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: $black;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $purple;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $purple-2;
+}

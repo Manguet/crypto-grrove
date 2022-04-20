@@ -1,0 +1,49 @@
+nav {
+  background-color: $black;
+  color: $purple;
+
+  .middle-nav {
+    position: relative !important;
+    padding: 10px 30px;
+    font-size: 1.8rem;
+    top: 54px;
+    left: 13vw;
+    color: $white;
+    background: $purple;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.5s;
+    line-height: 60px;
+    border-radius: 7px;
+
+    &:hover {
+      background: $purple url("../../../public/medias/pixel2.png");
+      color: $black;
+      transition-delay: 0.6s;
+      animation: animate 0.6s steps(10) forwards;
+    }
+  }
+}
+
+.nav-link {
+  font-family: $title-font;
+
+  &:hover {
+    color: $pink;
+
+    img {
+      transform: translateY(-10px);
+    }
+  }
+}
+
+@keyframes animate {
+
+  0% {
+    background-position-y: 0;
+  }
+
+  100% {
+    background-position-y: -890px;
+  }
+}

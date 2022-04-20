@@ -1,0 +1,83 @@
+.container-carousel {
+  position: absolute;
+  top: 277px;
+  left: 5vw;
+  width: min(400px, 100%);
+}
+
+ul {
+  list-style: none;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  perspective: 900px;
+  transform-style: preserve-3d;
+}
+ul > li {
+  position: absolute;
+  left: 50%;
+  top: calc(50% - 1.2rem);
+  --rotateX: calc( 1deg * var(--rotateDegrees) * calc(var(--day_idx) - var(--currentDay)) );
+  transform: rotateX(var(--rotateX)) translateZ(82px) translateX(-50%) scale(var(--scale, 1));
+  --hue: calc(var(--rotateDegrees) * var(--day_idx));
+  background-color: hsl(var(--hue), 50%, var(--lightness, 50%));
+  width: 70%;
+  color: white;
+  display: grid;
+  grid-template-columns: 2.5rem auto;
+  height: 2.4rem;
+  transition: transform 500ms ease, background-color 500ms ease;
+}
+
+ul > li.active {
+  --lightness: 30%;
+  --scale: 1.1;
+}
+ul > li > * {
+  display: grid;
+  align-items: center;
+}
+li > time {
+  text-align: center;
+}
+li > span {
+  padding-inline-start: 0.5rem;
+  color: white;
+}
+
+/* controls */
+.controls {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+.controls button {
+  width: 1.5rem;
+  aspect-ratio: 1;
+  font-size: 0.9rem;
+  color: white;
+  border: none;
+  background: #39657e;
+  display: grid;
+  place-items: center;
+}
+.controls button:hover,
+.controls button:focus {
+  background: rgb(6, 60, 131);
+}
+.controls button:active {
+  transform: scale(0.9);
+}
+.border {
+  width: 96%;
+  height: 3em;
+  border: 1px solid white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

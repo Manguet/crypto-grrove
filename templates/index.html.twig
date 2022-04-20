@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="advisor">
+        <p class="text-center">
+            This website use audios and videos. <br />
+            Do you want to continue ? <br />
+
+            (Music can be paused if you click on <img src="{{ asset('medias/audio.png') }}"
+                                                      style="display: inline-block"
+                                                      class="icon"
+                                                      alt="audio player"
+                                                      title="Start and Stop audio"> )
+        </p>
+
+        <div class="yes-or-no">
+            <a href="{{ path('index_homepage') }}"
+               class="nav-link"
+            >
+                Yes</a> <span class="nav-link">/</span> <a href="{{ path('index') }}" class="nav-link">No
+            </a>
+        </div>
+    </div>
+{% endblock %}

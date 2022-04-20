@@ -1,0 +1,6 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% include 'include/audio.html.twig' with { 'sound' : 'principal.wav'} %}
+    {% include 'include/options.html.twig' %}
+{% endblock %}
