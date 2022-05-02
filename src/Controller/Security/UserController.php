@@ -5,6 +5,7 @@ namespace App\Controller\Security;
 use App\Form\UserForm;
 use App\Interfaces\Authentication\WaxAccountInterface;
 use App\Services\File\FileUploader;
+use App\Traits\File\FileUploaderTrait;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\NonUniqueResultException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -18,6 +19,8 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 #[Route('/user', name: 'user_')]
 class UserController extends AbstractController
 {
+    use FileUploaderTrait;
+
     public function __construct(private WaxAccountInterface $waxAccount, private EntityManagerInterface $entityManager,
                                 private FileUploader $fileUploader) {}
 
@@ -75,16 +78,8 @@ class UserController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $file = $form['upload_file']->getData();
-            if ($file) {
-                $fileName = $this->fileUploader->upload($file);
-                if (null !== $fileName) {
-                    $directory = $this->fileUploader->getTargetDirectory();
-                    $fullPath = $directory . '/' . $fileName;
-                    $user->setAvatarName($this->fileUploader->getSiteBase($fullPath));
-                }
-            }
 
+            $this->insertFilePath($user, 'avatarName');
             $this->entityManager->flush();
 
             return $this->redirectToRoute('user_space');

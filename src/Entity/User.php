@@ -29,6 +29,9 @@ class User implements UserInterface
     #[ORM\Column(type: 'string', nullable: true)]
     private ?string $avatarName;
 
+    #[ORM\OneToOne(targetEntity: Option::class, cascade: ['persist', 'remove'])]
+    private ?Option $userOption;
+
     /**
      * @return int
      */
@@ -40,7 +43,7 @@ class User implements UserInterface
     /**
      * @return string|null
      */
-    #[Pure] public function getPseudo(): ?string
+    public function getPseudo(): ?string
     {
         return $this->pseudo;
 
@@ -49,7 +52,7 @@ class User implements UserInterface
     /**
      * @return string|null
      */
-    public function getPseudoFull(): ?string
+    #[Pure] public function getPseudoFull(): ?string
     {
         return $this->pseudo
             ? $this->pseudo . ' <small>(' . $this->getUserAccount() . ')</small>'
@@ -78,13 +81,15 @@ class User implements UserInterface
     }
 
     /**
-     * @param string $userAccount
+     * @param null|string $userAccount
      *
      * @return User
      */
-    public function setUserAccount(string $userAccount): self
+    public function setUserAccount(?string $userAccount): self
     {
-        $this->userAccount = $userAccount;
+        if (empty($this->userAccount)) {
+            $this->userAccount = $userAccount;
+        }
 
         return $this;
     }
@@ -135,14 +140,44 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getAvatarName()
+    /**
+     * @return string|null
+     */
+    public function getAvatarName(): ?string
     {
         return $this->avatarName;
     }
 
-    public function setAvatarName($avatarName)
+    /**
+     * @param null|string $avatarName
+     *
+     * @return User
+     */
+    public function setAvatarName(?string $avatarName): self
     {
-        $this->avatarName = $avatarName;
+        if (empty($this->avatarName) && !empty($avatarName)) {
+            $this->avatarName = $avatarName;
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Option|null
+     */
+    public function getUserOption(): ?Option
+    {
+        return $this->userOption;
+    }
+
+    /**
+     * @param Option|null $userOption
+     *
+     * @return User
+     */
+    public function setUserOption(?Option $userOption): self
+    {
+        $this->userOption = $userOption;
 
         return $this;
     }

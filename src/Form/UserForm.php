@@ -31,10 +31,12 @@ class UserForm extends AbstractType
             ])
             ->add('userAccount', TextType::class, [
                 'label'    => 'Account * : ',
-                'required' => true,
+                'required' => false,
                 'attr'     => [
-                    'placeholder' => 'Account'
-                ]
+                    'placeholder' => 'Account',
+                    'disabled'    => 'disabled'
+                ],
+                'data'     => $options['data']->getUserAccount()
             ])
             ->add('save', SubmitType::class, [
                 'label' => 'Submit',
