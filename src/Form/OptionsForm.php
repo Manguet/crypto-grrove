@@ -28,7 +28,6 @@ class OptionsForm extends AbstractType
                     ->add($label, CheckboxType::class, [
                         'label'    => $optionName,
                         'required' => false,
-                        'mapped'   => false,
                         'data'     => $options['optionRegistered']
                             ? $options['optionRegistered']->{'get' . str_replace(' ', '', $optionName)}()
                             : $optionData[$type],

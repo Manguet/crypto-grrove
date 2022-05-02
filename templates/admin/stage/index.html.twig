@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% include ('admin/header.html.twig') %}
+
+    <a href="{{ path('admin_stage_new') }}">
+        <button class="options new">New Stage</button>
+    </a>
+
+    <div id="table">Loading...</div>
+
+    <script src="{{ asset('bundles/datatables/js/datatables.js') }}"></script>
+    <script>
+        $('#table').initDataTables({{ datatable_settings(datatable) }}, {
+            searching: true,
+            dom: 'lTfgtpi',
+        }).then(function(dt) {
+            dt.on('draw', function() {
+                $('#table').css('background', 'black');
+                $('#table table').addClass('table-auto');
+                $('#table table tr').css('background', 'purple')
+                $('#table table tr').css('text-align', 'center')
+            })
+        });
+    </script>
+{% endblock %}

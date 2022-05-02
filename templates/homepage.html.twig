@@ -1,6 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {% include 'include/audio.html.twig' with { 'sound' : 'principal.wav'} %}
+    {% if musicActivated %}
+        {% include 'include/audio.html.twig' with { 'sound' : 'principal.wav'} %}
+    {% endif %}
+
     {% include 'include/options.html.twig' %}
 {% endblock %}

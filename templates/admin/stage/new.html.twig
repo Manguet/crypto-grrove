@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {% include ('admin/header.html.twig') %}
+
+    <div class="my-space" style="z-index: 1">
+
+        <div class="form-input">
+            {{ form_start(form) }}
+
+            <div>
+                {{ form_label(form.title) }}
+                {{ form_widget(form.title) }}
+            </div>
+
+            <div style="margin-top: 20px; margin-bottom: 20px">
+                {{ form_label(form.imageFile) }}
+                {{ form_widget(form.imageFile) }}
+            </div>
+
+            <div>
+                {{ form_label(form.music) }}
+                {{ form_widget(form.music) }}
+            </div>
+
+            <div>
+                {{ form_widget(form.save) }}
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

@@ -6,6 +6,7 @@ use App\Form\UserForm;
 use App\Interfaces\Authentication\WaxAccountInterface;
 use App\Services\File\FileUploader;
 use App\Traits\File\FileUploaderTrait;
+use App\Traits\Option\MusicActivatedTrait;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\NonUniqueResultException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -20,6 +21,7 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 class UserController extends AbstractController
 {
     use FileUploaderTrait;
+    use MusicActivatedTrait;
 
     public function __construct(private WaxAccountInterface $waxAccount, private EntityManagerInterface $entityManager,
                                 private FileUploader $fileUploader) {}
@@ -86,8 +88,9 @@ class UserController extends AbstractController
         }
 
         return $this->render('my-space.html.twig', [
-            'form' => $form->createView(),
-            'user' => $user
+            'form'           => $form->createView(),
+            'user'           => $user,
+            'musicActivated' => $this->isMusicActivated($this->getUser())
         ]);
     }
 }

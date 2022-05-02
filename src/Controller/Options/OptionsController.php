@@ -3,6 +3,7 @@
 namespace App\Controller\Options;
 
 use App\Form\OptionsForm;
+use App\Traits\Option\MusicActivatedTrait;
 use App\Traits\Option\RegisterUserOptionTrait;
 use Doctrine\ORM\EntityManagerInterface;
 use LogicException;
@@ -16,6 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class OptionsController extends AbstractController
 {
     use RegisterUserOptionTrait;
+    use MusicActivatedTrait;
 
     public function __construct(private ?KernelInterface $kernel, private ?EntityManagerInterface $entityManager) {}
 
@@ -55,8 +57,9 @@ class OptionsController extends AbstractController
         }
 
         return $this->render('options.html.twig', [
-            'form'    => $form->createView(),
-            'options' => $options,
+            'form'           => $form->createView(),
+            'options'        => $options,
+            'musicActivated' => $this->isMusicActivated($this->getUser())
         ]);
     }
 

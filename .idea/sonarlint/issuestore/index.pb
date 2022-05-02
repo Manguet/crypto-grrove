@@ -9,8 +9,6 @@ C
 .env.dev.local,c\e\cec532b95cebf87b8e2e6ac717fe87219ac83aef
 M
 config/packages/security.yaml,c\5\c5f941b4d4e9404f23935164fabdd261abb68e93
-T
-$src/Controller/DefaultController.php,8\b\8ba46e94b2ff4bd5f5bb93c4117e097f5130decc
 Q
 !src/Repository/UserRepository.php,9\4\943a623b5e2fd95ea78f6287fc600a6f8e0a5235
 Q
@@ -35,8 +33,6 @@ V
 &assets/controllers/hello_controller.js,b\5\b5aea0f996f6645c77ef6ac38e15316374d0fba2
 B
 assets/js/audio.js,9\2\92df992fabd2b076194fb96c1cd84bf314d795dd
-=
-assets/app.js,8\6\8651bd0a7d84f9f6460894ab6b5ff212648386c4
 V
 &assets/styles/components/messages.scss,5\4\54995962291d29d4057c5e4e042c0b15918a3b71
 S
@@ -47,16 +43,8 @@ I
 templates/index.html.twig,5\7\57c030ca28b9ba1c9f4724a40f5447c7562baa62
 S
 #templates/include/options.html.twig,a\2\a21989681b45fa9e23dedff0dfd0ad3e54b607dd
-P
- assets/styles/header/header.scss,a\2\a27717610651852e17f97cc81265c81955ab57c1
 L
 assets/styles/variables.scss,5\b\5b1fcabd018f3307fba20df4da2e4141503fec5f
-F
-assets/styles/app.scss,a\e\aea929363b457a82916ff90ee1de00f3283c474b
-U
-%src/Traits/File/FileUploaderTrait.php,8\2\8239d5d8a809dbee6b73a32cc6d6b624fb6d3e40
-R
-"src/Services/File/FileUploader.php,6\3\637d56c5e8156e8c21d51fe7fb4f8dd322dd98a3
 D
 config/services.yaml,8\7\87042d1f46b57381244d70e7a42feeb7710727dc
 V
@@ -65,8 +53,6 @@ O
 templates/base/header.html.twig,9\c\9c0d8008af9d6d55f081cd1887b23a2ae7b7e21d
 Q
 !templates/include/audio.html.twig,d\9\d971f2a86ca83ffea58aff7e6a559ce559a62aff
-L
-templates/homepage.html.twig,4\8\4816da944f9d75cf1592d0a00dfe6e11b60a47e7
 B
 config/bundles.php,f\a\fa9a09a4e1ae4281250526d3dec214138beb5735
 D

@@ -2,7 +2,10 @@
 
 {% block body %}
 
-    {% include 'include/audio.html.twig' with { 'sound' : 'options.mp3'} %}
+    {% if musicActivated %}
+        {% include 'include/audio.html.twig' with { 'sound' : 'options.mp3'} %}
+    {% endif %}
+
     <div class="my-space">
 
         <div class="form-input">
